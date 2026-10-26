@@ -9,7 +9,7 @@ pkg install python termux-api wget -y
 
 # 2. Download the main Python script from your GitHub
 echo "📥 Downloading scanner.py..."
-wget -qO ~/scanner.py https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/scanner.py
+wget -qO ~/scanner.py https://raw.githubusercontent.com/devrana778410-arch/Gps-Scanner/main/scanner.py
 
 # 3. Create the widget shortcut directory and the launch script
 echo "⚙️ Configuring home screen widget shortcut..."
@@ -39,4 +39,3 @@ echo "⚠️ FINAL MANUAL STEPS FOR THE USER:"
 echo "1. Ensure 'Termux:Widget' and 'Termux:API' apps are installed."
 echo "2. Go to Android Settings -> Apps -> Termux -> Allow 'Display over other apps'."
 echo "3. Add the Termux Widget to your home screen."
-
