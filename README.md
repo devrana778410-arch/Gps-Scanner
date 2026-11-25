@@ -12,6 +12,7 @@ This architecture bridges physical optical sensors (Binary Eye) to a local, sand
   * **Combined QR Devices (e.g., Traxsmart):** Automatically extracts the 15-digit IMEI and 19/20-digit ICCID from a single QR code scan.
   * **Multi-Barcode Devices (e.g., GPS Bull):** Automatically pairs individual IMEI and ICCID barcodes in any scan order.
 * **Smart Noise Filtering:** Automatically discards useless website QR links (e.g. `https://www.gpsbull.com/`) and proprietary UID/serial barcodes.
+* **Live Web UI Dashboard (`http://127.0.0.1:8080`):** Real-time browser status view over Server-Sent Events (SSE) while Binary Eye remains your fast hardware camera. Inspect buffered scans, undo mistaken pairs with **Undo Last**, or clear stray half-scans with **Discard Buffer**.
 * **Haptic Feedback:** Vibrates subtly on scan and provides a distinct buzz when a device pair is completed.
 * **Zero Latency:** Processes scans instantly over loopback (`127.0.0.1`), fully offline without cloud dependencies.
 * **Continuous Scanning:** Leverages Binary Eye's continuous autofocus to scan non-stop.
@@ -41,15 +42,26 @@ Open **Binary Eye** -> **Settings**:
    ```
 3. Set action to trigger automatically on scan.
 
+### Live Dashboard (Optional Safety Net)
+While scanning with Binary Eye, you can open Chrome on the same phone to **`http://127.0.0.1:8080`** to view the live buffer and committed pairs:
+* **Yellow buffer:** Waiting for the second barcode (IMEI or ICCID).
+* **Green flash / ready:** Pair completed (or returned to buffer via Undo).
+* **Discard Buffer:** Clear a stray half-scan (or tap `×` on an individual field).
+* **Undo Last:** Pop the most recent committed pair back into the buffer to fix a mismatch.
+
 ---
 
-## 🚀 Installation (Inside Termux)
+## 🚀 Install or Update (Inside Termux)
 
-Run this one-liner in Termux:
+Run this **one-liner** in Termux to install on a new phone or update an existing phone in ~2 seconds:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/devrana778410-arch/Gps-Scanner/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/devrana778410-arch/Gps-Scanner/main/install.sh | bash
 ```
+
+Once installed, future updates are even simpler:
+* **1-Tap Home Screen Widget:** Tap **`Update_Scanner.sh`** via Termux:Widget.
+* **1-Word Command:** Run `update-scanner` anywhere in Termux.
 
 Or clone the repo directly:
 ```bash
